@@ -2,12 +2,13 @@ package dynastie.models;
 
 public class CarolingienProg {
     public static void main(String[] args) {
+        Region fr = new Region("France");
         Dynastie dCaros = new Dynastie("Carolingiens");
-        Homme pepin = new Homme("Pépin", "le Bref");
-        ((Homme)(pepin.naitre(715))).epouser(new Femme("Berthe", "Aux grands pieds")).mourir(768);
-        //pepin.naitre(715);
-        //pepin.epouser(new Femme("Berthe", "Auw grands pieds"));
-        //pepin.sacrer();
+        Suzerain pepin = new Suzerain("Pépin", "le Bref");
         dCaros.ajouter(pepin);
-    } 
+        pepin.naitre(715);
+        pepin.epouser(new Femme("Berthe", "Aux grands pieds"));
+        pepin.sacrer("Roi", 751, fr);
+        pepin.mourir(768);
+    }
 }
